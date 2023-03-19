@@ -22,7 +22,7 @@ GainPluginAudioProcessor::GainPluginAudioProcessor()
                        )
 #endif
 {
-    addParameter(mGainParameter = new juce::AudioParameterFloat("gain", "Gain", -10, 100, 0.5));
+    addParameter(mGainParameter = new juce::AudioParameterFloat("gain", "Gain", 0, 1, 0.5));
 }
 
 GainPluginAudioProcessor::~GainPluginAudioProcessor()
@@ -157,9 +157,8 @@ void GainPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
 
         // ..do something to the data...
 
-        for(int sample; sample < buffer.getNumSamples(); sample++) {
-            channelData[sample] *= mGainParameter->get();
-        }
+        buffer.applyGain(*mGainParameter);
+
     }
 }
 
