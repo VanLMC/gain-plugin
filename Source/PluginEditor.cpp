@@ -16,6 +16,14 @@ GainPluginAudioProcessorEditor::GainPluginAudioProcessorEditor (GainPluginAudioP
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
+
+    int STARTS_AT_PIXEL = 0, ENDS_AT_PIXEL = 0, PIXELS_WIDE = 100, PIXELS_TALL = 100;
+
+    mGainControlSlider.setBounds(STARTS_AT_PIXEL, ENDS_AT_PIXEL, PIXELS_WIDE, PIXELS_TALL);
+    mGainControlSlider.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    mGainControlSlider.setTextBoxStyle(juce::Slider::NoTextBox, true, 0, 0);
+
+    addAndMakeVisible(mGainControlSlider);
 }
 
 GainPluginAudioProcessorEditor::~GainPluginAudioProcessorEditor()

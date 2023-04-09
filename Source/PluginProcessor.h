@@ -57,6 +57,7 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
+
     juce::AudioParameterFloat* mGainParameter;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GainPluginAudioProcessor)
